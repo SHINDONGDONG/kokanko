@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kokanko/common/widgets/background_widget.dart';
 import 'package:kokanko/constans/colors.dart';
 import 'package:kokanko/feature/onborading/screen/onboarding_screen.dart';
+import 'package:kokanko/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       builder:
-          (context, child) => MaterialApp(
+          (context, child) => MaterialApp.router(
+            routerConfig: appRouter,
             debugShowCheckedModeBanner: false,
             title: 'Kokanko',
             theme: ThemeData(
@@ -56,7 +58,6 @@ class MyApp extends StatelessWidget {
                 children: [BackgroundWidget(), child ?? SizedBox.shrink()],
               );
             },
-            home: const OnboardingScreen(),
           ),
     );
   }
