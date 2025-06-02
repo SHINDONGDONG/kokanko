@@ -1,50 +1,57 @@
 // GoRouter 인스턴스 생성
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kokanko/feature/chat/screen/chat_screen.dart';
-import 'package:kokanko/feature/home/screen/home_screen.dart';
+import 'package:kokanko/common/widgets/bottom_nav_widget.dart';
+// import 'package:kokanko/feature/chat/screen/chat_screen.dart';
+// import 'package:kokanko/feature/home/screen/home_screen.dart';
 import 'package:kokanko/feature/onborading/screen/onboarding_screen.dart';
-import 'package:kokanko/feature/profile/screen/profile_screen.dart';
+// import 'package:kokanko/feature/profile/screen/profile_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
 
   routes: <RouteBase>[
     GoRoute(
+      path: '/bottom', // 기본 경로 (홈 화면)
+      builder: (BuildContext context, GoRouterState state) {
+        return const CustomBottomNavBar(); // 홈 화면 위젯
+      },
+    ),
+    GoRoute(
       path: '/', // 기본 경로 (홈 화면)
       builder: (BuildContext context, GoRouterState state) {
-        return OnboardingScreen(); // 홈 화면 위젯
+        return const OnboardingScreen(); // 홈 화면 위젯
       },
     ),
-    GoRoute(
-      pageBuilder: (context, state) {
-        return CustomTransitionPage(
-          child: HomeScreen(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child, // 홈 화면 위젯
-            );
-          },
-        );
-      },
-      path: '/home', // 기본 경로 (홈 화면)
-      // builder: (BuildContext context, GoRouterState state) {
-      //   return HomeScreen(); // 홈 화면 위젯
-      // },
-    ),
-    GoRoute(
-      path: '/chat', // 경로 파라미터 사용 예시 (:id)
-      builder: (BuildContext context, GoRouterState state) {
-        return ChatScreen(); // 상세 화면 위젯
-      },
-    ),
-    GoRoute(
-      path: '/profile', // 설정 화면 경로
-      builder: (BuildContext context, GoRouterState state) {
-        return ProfileScreen(); // 설정 화면 위젯
-      },
-    ),
+    // GoRoute(
+    //   pageBuilder: (context, state) {
+    //     return CustomTransitionPage(
+    //       child: HomeScreen(),
+    //       transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    //         return FadeTransition(
+    //           opacity: animation,
+    //           child: child, // 홈 화면 위젯
+    //         );
+    //       },
+    //     );
+    //   },
+    //   path: '/home', // 기본 경로 (홈 화면)
+    //   // builder: (BuildContext context, GoRouterState state) {
+    //   //   return HomeScreen(); // 홈 화면 위젯
+    //   // },
+    // ),
+    // GoRoute(
+    //   path: '/chat', // 경로 파라미터 사용 예시 (:id)
+    //   builder: (BuildContext context, GoRouterState state) {
+    //     return ChatScreen(); // 상세 화면 위젯
+    //   },
+    // ),
+    // GoRoute(
+    //   path: '/profile', // 설정 화면 경로
+    //   builder: (BuildContext context, GoRouterState state) {
+    //     return ProfileScreen(); // 설정 화면 위젯
+    //   },
+    // ),
   ],
 );
 

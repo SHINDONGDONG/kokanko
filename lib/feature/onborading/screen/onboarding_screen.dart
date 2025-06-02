@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kokanko/common/enum/word.dart';
 import 'package:kokanko/common/widgets/text_widghet.dart';
 
@@ -91,6 +92,6 @@ class OnboardingScreen extends StatelessWidget {
 
   // 시작 버튼 클릭 시 다음 화면으로 이동하는 로직
   void _onStartButtonPressed(BuildContext context) {
-    // TODO: 다음 화면으로 이동하는 로직 구현
+    context.go("/bottom"); // 홈 화면으로 이동
   }
 }

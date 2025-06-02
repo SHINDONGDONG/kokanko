@@ -4,7 +4,11 @@ enum Word {
     "Things that I don't use anymore\na place that turns into someone's want",
     "使わなくなったモノが\n誰かの「欲しい」に変わる場所",
   ),
-  onboardingButtonText("Let's start with area settings", "エリア設定から始めよう");
+  onboardingButtonText("Let's start with area settings", "エリア設定から始めよう"),
+  bottomNavigationHome("Home", "ホーム"),
+  bottomNavigationHelp("Help", "お手伝い"),
+  bottomNavigationChat("Chat", "チャット"),
+  bottomNavigationProfile("Profile", "マイページ");
 
   final String en;
   final String jp;

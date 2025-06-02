@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kokanko/common/widgets/background_widget.dart';
 import 'package:kokanko/constans/colors.dart';
-import 'package:kokanko/feature/onborading/screen/onboarding_screen.dart';
 import 'package:kokanko/router.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       builder:
           (context, child) => MaterialApp.router(
             routerConfig: appRouter,
@@ -27,15 +26,28 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: Colors.transparent,
 
               fontFamily: GoogleFonts.notoSansJp().fontFamily,
-              // colorScheme: ColorScheme.fromSeed(
-              //   seedColor: AppConst.kPrimary,
-              //   primary: AppConst.kPrimary,
-              //   secondary: AppConst.kSecondary,
-              // ),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: AppConst.kPrimary,
+                primary: AppConst.kPrimary,
+                secondary: AppConst.kSecondary,
+              ),
+              bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                backgroundColor: AppConst.kWhite,
+                selectedItemColor: AppConst.kTextPrimary,
+                unselectedItemColor: AppConst.kTextSecondary,
+                selectedLabelStyle: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+                unselectedLabelStyle: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
               elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppConst.kPrimary,
-                  foregroundColor: Color(0xffffffff),
+                  foregroundColor: AppConst.kWhite,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.r),
                   ),
@@ -55,7 +67,10 @@ class MyApp extends StatelessWidget {
             ),
             builder: (context, child) {
               return Stack(
-                children: [BackgroundWidget(), child ?? SizedBox.shrink()],
+                children: [
+                  const BackgroundWidget(),
+                  child ?? const SizedBox.shrink(),
+                ],
               );
             },
           ),

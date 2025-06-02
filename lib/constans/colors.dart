@@ -9,4 +9,8 @@ class AppConst {
   static const Color kPrimaryLight = Color(0xFFFFE6D5);
   static const Color kSecondary = Color(0xFF4BA78A);
   static const Color kSecondaryLight = Color(0xffD4EFE4);
+  static const Color kWhite = Color(0xffffffff);
+  static const Color kTextPrimary = Color(0xff333333);
+  static const Color kTextSecondary = Color(0xff666666);
+  static const Color kInactive = Color(0xffA1A1A1);
 }
