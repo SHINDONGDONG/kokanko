@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kokanko/common/widgets/background_widget.dart';
@@ -53,17 +54,14 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // appBarTheme: AppBarTheme(
-              //   backgroundColor: AppConst.kBackground,
-              //   elevation: 0,
-              //   iconTheme: IconThemeData(color: AppConst.kPrimary),
-              //   titleTextStyle: TextStyle(
-              //     color: AppConst.kPrimary,
-              //     fontSize: 20.sp,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
+              appBarTheme: AppBarTheme(
+                systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
+                  statusBarBrightness:
+                      Brightness.light, // iOS에서 상태바 아이콘을 어둡게 (검정색)
+                  statusBarIconBrightness: Brightness.dark, // 안드로이드용
+                  statusBarColor: Colors.transparent, // 안드로이드 상태바 배경색
+                ),
+              ),
             ),
             builder: (context, child) {
               return Stack(

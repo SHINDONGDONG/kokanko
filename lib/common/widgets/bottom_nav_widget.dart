@@ -1,55 +1,6 @@
-// import 'package:flutter/material.dart';
-// import 'package:kokanko/feature/chat/screen/chat_screen.dart';
-// import 'package:kokanko/feature/home/screen/home_screen.dart';
-// import 'package:kokanko/feature/profile/screen/profile_screen.dart';
-// import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
-
-// List<PersistentTabConfig> _buildScreens() {
-//   return [
-//     PersistentTabConfig(
-//       screen: const HomeScreen(),
-//       item: ItemConfig(icon: Icon(Icons.home), title: "Home"),
-//     ),
-//     PersistentTabConfig(
-//       screen: const ChatScreen(),
-//       item: ItemConfig(icon: Icon(Icons.message), title: "Messages"),
-//     ),
-//     PersistentTabConfig(
-//       screen: const ProfileScreen(),
-//       item: ItemConfig(icon: Icon(Icons.settings), title: "Settings"),
-//     ),
-//     PersistentTabConfig(
-//       screen: const ProfileScreen(),
-//       item: ItemConfig(icon: Icon(Icons.settings), title: "Settings"),
-//     ),
-//   ];
-// }
-
-// class PersistenBottomNavBarDemo extends StatelessWidget {
-//   const PersistenBottomNavBarDemo({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return PersistentTabView(
-//       backgroundColor: Colors.transparent,
-//       tabs: _buildScreens(),
-//       navBarBuilder:
-//           (navBarConfig) => Style4BottomNavBar(
-//             navBarConfig: navBarConfig,
-
-//             // itemAnimationProperties: ItemAnimation(
-//             //   duration: Duration(milliseconds: 200),
-//             //   curve: Curves.easeInOut,
-//             // ),
-//           ),
-//     );
-//   }
-// }
-
-// TabBar와 TabBarView를 관리할 StatefulWidget
-// SingleTickerProviderStateMixin을 믹스인 해줘야 TabController를 쓸 수 있어!
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kokanko/common/enum/word.dart';
 import 'package:kokanko/constans/colors.dart';
 import 'package:kokanko/feature/chat/screen/chat_screen.dart';
@@ -102,26 +53,26 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             enableFeedback: false,
             items: [
               _buildNavItem(
-                Icons.home_outlined,
-                Icons.home,
+                "assets/logos/logo_home_outline.svg",
+                "assets/logos/logo_home.svg",
                 Word.bottomNavigationHome.text(),
                 0,
               ),
               _buildNavItem(
-                Icons.search_outlined,
-                Icons.search,
+                "assets/logos/logo_assistance_outline.svg",
+                "assets/logos/logo_assistance_outline.svg",
                 Word.bottomNavigationHelp.text(),
                 1,
               ),
               _buildNavItem(
-                Icons.person_outline,
-                Icons.person,
+                "assets/logos/logo_chat_outline.svg",
+                "assets/logos/logo_chat.svg",
                 Word.bottomNavigationChat.text(),
                 2,
               ),
               _buildNavItem(
-                Icons.menu,
-                Icons.menu,
+                "assets/logos/logo_profile_outline.svg",
+                "assets/logos/logo_profile_outline.svg",
                 Word.bottomNavigationProfile.text(),
                 3,
               ),
@@ -134,8 +85,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   // 클래스 내에 새로운 메서드 추가
   BottomNavigationBarItem _buildNavItem(
-    IconData icon,
-    IconData activeIcon,
+    String icon,
+    String activeIcon,
     String label,
     int index,
   ) {
@@ -143,22 +94,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       icon: Stack(
         clipBehavior: Clip.none,
 
-        children: [
-          Icon(icon, size: 24.r),
-          // if (_selectedIndex == index)
-          // Positioned(
-          //   top: -8.r,
-          //   left: 0,
-          //   right: 0,
-          //   child: Container(
-          //     height: 4.r,
-          //     decoration: BoxDecoration(
-          //       color: AppConst.kPrimary,
-          //       borderRadius: BorderRadius.circular(2.r),
-          //     ),
-          //   ),
-          // ),
-        ],
+        children: [SvgPicture.asset(icon, width: 24.r, height: 24.r)],
       ),
       activeIcon: SizedBox(
         width: double.infinity,
@@ -166,7 +102,15 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           alignment: Alignment.center,
           clipBehavior: Clip.none,
           children: [
-            Icon(activeIcon, size: 24.r),
+            SvgPicture.asset(
+              activeIcon,
+              width: 24.r,
+              height: 24.r,
+              colorFilter: const ColorFilter.mode(
+                Colors.black,
+                BlendMode.srcIn,
+              ),
+            ),
             Positioned(
               top: -8.r,
               left: 0,
