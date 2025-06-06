@@ -3,10 +3,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kokanko/common/widgets/circle_blur_widget.dart';
-import 'package:kokanko/common/widgets/text_widghet.dart';
+import 'package:kokanko/common/widgets/top_tabbar_widget.dart';
 import 'package:kokanko/constans/colors.dart';
-import 'package:kokanko/feature/home/widgets/%08free_widget.dart';
+import 'package:kokanko/feature/home/widgets/free_widget.dart';
 import 'package:kokanko/feature/home/widgets/kokan_widget.dart';
 
 class HomeScreen extends HookWidget {
@@ -14,7 +15,6 @@ class HomeScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tabController = useTabController(initialLength: 2);
     final currentIndex = useState(0);
     final selectedValue = useState("江東区");
 
@@ -94,44 +94,14 @@ class HomeScreen extends HookWidget {
             elevation: 0,
             backgroundColor: Colors.transparent,
             actions: [
-              SvgPicture.asset("assets/logos/logo_search.svg"),
+              GestureDetector(
+                onTap: () => context.push("/search"),
+                child: SvgPicture.asset("assets/logos/logo_search.svg"),
+              ),
               Gap(16.w),
               SvgPicture.asset("assets/logos/logo_alram.svg"),
             ],
-            bottom: PreferredSize(
-              preferredSize: Size.square(40.h),
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.08),
-                      offset: const Offset(0, 2), // y축 2픽셀
-                      blurRadius: 2, // blur 4
-                    ),
-                  ],
-                  color: AppConst.kInactiveBg,
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
-                child: TabBar(
-                  controller: tabController,
-                  labelColor: AppConst.kWhite,
-                  unselectedLabelColor: AppConst.kInactiveText,
-                  indicatorColor: AppConst.kPrimary,
-                  indicator: const BoxDecoration(),
-                  dividerColor: Colors.transparent,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  indicatorWeight: 0,
-                  labelPadding: EdgeInsets.zero,
-                  onTap: (value) => currentIndex.value = value,
-                  tabs: [
-                    _buildTab(currentIndex.value, 0, "交換"),
-                    _buildTab(currentIndex.value, 1, "ゆずる"),
-                  ],
-                ),
-              ),
-            ),
+            bottom: TopTabbarWidget((index) => currentIndex.value = index),
           ),
           body: SafeArea(
             child: IndexedStack(
@@ -141,34 +111,6 @@ class HomeScreen extends HookWidget {
           ),
         ),
       ],
-    );
-  }
-
-  //Tab Widget
-  Tab _buildTab(int currentIndex, int fixedIndex, String text) {
-    return Tab(
-      child: Container(
-        alignment: Alignment.center,
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color:
-              currentIndex == 0 && fixedIndex == 0
-                  ? AppConst.kPrimary
-                  : currentIndex == 1 && fixedIndex == 1
-                  ? AppConst.kSecondary
-                  : AppConst.kInactiveBg,
-          borderRadius: BorderRadius.circular(12.r),
-        ),
-        child: TextWidget(
-          text: text,
-          fontWeight: FontWeight.bold,
-          fontColor:
-              currentIndex == fixedIndex
-                  ? AppConst.kWhite
-                  : AppConst.kInactiveText,
-        ),
-      ),
     );
   }
 }
