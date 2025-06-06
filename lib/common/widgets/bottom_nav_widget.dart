@@ -19,8 +19,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    ChatScreen(),
     ProfileScreen(),
+    ChatScreen(),
     ProfileScreen(),
   ];
 
@@ -60,7 +60,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               ),
               _buildNavItem(
                 "assets/logos/logo_assistance_outline.svg",
-                "assets/logos/logo_assistance_outline.svg",
+                "assets/logos/logo_assistance.svg",
                 Word.bottomNavigationHelp.text(),
                 1,
               ),
@@ -72,7 +72,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               ),
               _buildNavItem(
                 "assets/logos/logo_profile_outline.svg",
-                "assets/logos/logo_profile_outline.svg",
+                "assets/logos/logo_profile.svg",
                 Word.bottomNavigationProfile.text(),
                 3,
               ),
@@ -106,10 +106,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               activeIcon,
               width: 24.r,
               height: 24.r,
-              colorFilter: const ColorFilter.mode(
-                Colors.black,
-                BlendMode.srcIn,
-              ),
+              // colorFilter: const ColorFilter.mode(
+              //   Colors.black,
+              //   // BlendMode.srcOut,
+              // ),
             ),
             Positioned(
               top: -8.r,

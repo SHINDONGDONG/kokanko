@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kokanko/common/widgets/bottom_nav_widget.dart';
-// import 'package:kokanko/feature/chat/screen/chat_screen.dart';
-// import 'package:kokanko/feature/home/screen/home_screen.dart';
 import 'package:kokanko/feature/onborading/screen/onboarding_screen.dart';
-// import 'package:kokanko/feature/profile/screen/profile_screen.dart';
+import 'package:kokanko/feature/search/screen/search_scree.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -21,6 +19,12 @@ final GoRouter appRouter = GoRouter(
       path: '/', // 기본 경로 (홈 화면)
       builder: (BuildContext context, GoRouterState state) {
         return const OnboardingScreen(); // 홈 화면 위젯
+      },
+    ),
+    GoRoute(
+      path: '/search', // 기본 경로 (홈 화면)
+      builder: (BuildContext context, GoRouterState state) {
+        return const SearchScreen(); // 홈 화면 위젯
       },
     ),
     // GoRoute(

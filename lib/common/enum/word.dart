@@ -10,7 +10,8 @@ enum Word {
   bottomNavigationChat("Chat", "チャット"),
   bottomNavigationProfile("Profile", "マイページ"),
   emptyKokanItem("Empty Kokan Item", "まだ交換アイテムがありません"),
-  emptyFreeItem("Empty Free Item", "まだゆずるアイテムがありません");
+  emptyFreeItem("Empty Free Item", "まだゆずるアイテムがありません"),
+  searchForItem("Search", "何をお探しですか？");
 
   final String en;
   final String jp;
