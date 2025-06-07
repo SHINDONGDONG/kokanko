@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kokanko/common/enum/word.dart';
+import 'package:kokanko/common/enum/words.dart';
 import 'package:kokanko/constans/colors.dart';
 import 'package:kokanko/feature/chat/screen/chat_screen.dart';
 import 'package:kokanko/feature/home/screen/home_screen.dart';
@@ -55,25 +55,25 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               _buildNavItem(
                 "assets/logos/logo_home_outline.svg",
                 "assets/logos/logo_home.svg",
-                Word.bottomNavigationHome.text(),
+                Words.bottomNavigationHome.text(),
                 0,
               ),
               _buildNavItem(
                 "assets/logos/logo_assistance_outline.svg",
                 "assets/logos/logo_assistance.svg",
-                Word.bottomNavigationHelp.text(),
+                Words.bottomNavigationHelp.text(),
                 1,
               ),
               _buildNavItem(
                 "assets/logos/logo_chat_outline.svg",
                 "assets/logos/logo_chat.svg",
-                Word.bottomNavigationChat.text(),
+                Words.bottomNavigationChat.text(),
                 2,
               ),
               _buildNavItem(
                 "assets/logos/logo_profile_outline.svg",
                 "assets/logos/logo_profile.svg",
-                Word.bottomNavigationProfile.text(),
+                Words.bottomNavigationProfile.text(),
                 3,
               ),
             ],

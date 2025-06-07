@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kokanko/common/enum/word.dart';
+import 'package:kokanko/common/enum/words.dart';
 import 'package:kokanko/common/widgets/text_widghet.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -56,7 +56,7 @@ class OnboardingScreen extends StatelessWidget {
   //메인 텍스트
   Widget _buildMainText() {
     return TextWidget(
-      text: Word.onboardingMainText.text(),
+      text: Words.onboardingMainText.text(),
       fontWeight: FontWeight.bold,
     );
   }
@@ -64,7 +64,7 @@ class OnboardingScreen extends StatelessWidget {
   //서브 텍스트
   Widget _buildSubText() {
     return TextWidget(
-      text: Word.onboardingSubText.text(),
+      text: Words.onboardingSubText.text(),
       fontsize: 14,
       lineHeight: 1.5,
     );
@@ -83,7 +83,7 @@ class OnboardingScreen extends StatelessWidget {
         ),
         onPressed: () => _onStartButtonPressed(context),
         child: TextWidget(
-          text: Word.onboardingButtonText.text(),
+          text: Words.onboardingButtonText.text(),
           fontWeight: FontWeight.bold,
         ),
       ),

@@ -15,4 +15,5 @@ class AppConst {
   static const Color kTextPrimary = Color(0xff222222);
   static const Color kTextSecondary = Color(0xff666666);
   static const Color kInactiveText = Color(0xffA1A1A1);
+  static const Color kBorderLine = Color(0xffDDDDDD);
 }
