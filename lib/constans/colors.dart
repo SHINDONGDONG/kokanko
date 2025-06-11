@@ -21,4 +21,5 @@ class AppConst {
     Color(0xffffffff),
     Color(0xffE4E4E4),
   ];
+
 }

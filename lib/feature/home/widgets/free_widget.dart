@@ -252,5 +252,20 @@ class FreeWidget extends StatelessWidget {
             ),
           ],
         );
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SvgPicture.asset("assets/imgs/img_empty_data.svg"),
+          TextWidget(
+            text: Words.emptyFreeItem.text(),
+            fontWeight: FontWeight.w500,
+            fontColor: AppConst.kInactiveText,
+          ),
+          Gap(100.h),
+        ],
+      ),
+    );
   }
 }
