@@ -16,7 +16,27 @@ enum Words {
   free("free", "ゆずる"),
   searchHistory("Search History", "検索履歴"),
   allDelete("All Delete", "すべて削除"),
-  category("category", "カテゴリ");
+  category("category", "カテゴリ"),
+  furniture("furniture", "家具"),
+  homeAppliances("homeAppliances", "生活家電"),
+  kitchen("kitchen", "キッチン用品"),
+  digitalDevices("digitalDevices", "デジタル機器"),
+  smallElectronicdevices("smallElectronicdevices", "小型電子機器"),
+  gamesAndHobbies("gamesAndHobbies", "ゲーム・ホビー"),
+  wClothing("wClothing", "レディース服"),
+  mClothing("mClothing", "メンズ服"),
+  wShoes("wShoes", "レディース靴"),
+  mShoes("mShoes", "メンス靴"),
+  accAndSundries("accAndSundries", "小物・雑貨"),
+  beautyAndCos("beautyAndCos", "美容・コスメ"),
+  bClothing("bClothing", "ベビー服"),
+  bProducts("bProducts", "ベビー用品"),
+  kToys("kToys", "キッズトイ"),
+  pSupplies("pSupplies", "ペット用品"),
+  sports("sports", "スポーツ"),
+  vehicles("vehicles", "乗り物"),
+  books("books", "本"),
+  meanIcon("meanIcon", "アイコンの意味は");
 
   final String en;
   final String jp;
