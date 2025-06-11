@@ -1,4 +1,3 @@
-// Dart 2.17+ 부터 enum에 필드/메서드 추가 가능!
 enum CategoryType {
   furniture(name: '家具', imagePath: 'assets/logos/category_furniture.svg'),
   homeAppliances(

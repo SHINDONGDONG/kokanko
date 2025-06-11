@@ -16,4 +16,9 @@ class AppConst {
   static const Color kTextSecondary = Color(0xff666666);
   static const Color kInactiveText = Color(0xffA1A1A1);
   static const Color kBorderLine = Color(0xffDDDDDD);
+  static const List<Color> kDivider = [
+    Color(0xffE4E4E4),
+    Color(0xffffffff),
+    Color(0xffE4E4E4),
+  ];
 }
